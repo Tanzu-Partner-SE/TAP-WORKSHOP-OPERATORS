@@ -85,12 +85,16 @@ kubectl config get-contexts
 kubectl create ns tap-install
 ```
 
+```execute
+kubectl create ns tap-workload
+```
+
 <p style="color:blue"><strong> Set environment variable </strong></p>
 
 ![Env](images/prepare-2.png)
 
 ```execute
-export INSTALL_BUNDLE=registry.tanzu.vmware.com/tanzu-cluster-essentials/cluster-essentials-bundle@sha256:54bf611711923dccd7c7f10603c846782b90644d48f1cb570b43a082d18e23b9
+export INSTALL_BUNDLE=registry.tanzu.vmware.com/tanzu-cluster-essentials/cluster-essentials-bundle@sha256:79abddbc3b49b44fc368fede0dab93c266ff7c1fe305e2d555ed52d00361b446
 export INSTALL_REGISTRY_HOSTNAME=registry.tanzu.vmware.com
 ```
 
@@ -158,4 +162,8 @@ sed -i -r "s/password-registry/$DOCKER_REGISTRY_PASSWORD/g" $HOME/autoheal.sh
 
 ```execute
 sed -i -r "s/SESSION_NAME/$SESSION_NAME/g" $HOME/tap-values.yaml
+```
+
+```execute
+sed -i -r "s/SESSION_NAME/$SESSION_NAME/g" $HOME/tas-adapter-values.yaml
 ```

@@ -30,25 +30,7 @@ kubectl apply -f $HOME/tekton-pipeline.yaml -n tap-install
 kubectl apply -f $HOME/scanpolicy.yaml -n tap-install
 ```
 
-<p style="color:blue"><strong> List the packages installed </strong></p>
-
-```execute
-sudo tanzu package installed list -A
-```
-
-###### Execute the below Auto heal script
-
-```
-source ~/autoheal.sh
-```
-
-```execute
-sudo tanzu package installed list -A
-```
-
-![Installed Package](images/install-5.png)
-
-###### If all the packages are installed successfully, now its time to deploy an application on TAP. Provide the gitrepo that you have forked in the beginning. 
+###### Now its time to deploy an application on TAP. Provide the gitrepo that you have forked in the beginning. 
 
 
 ```execute

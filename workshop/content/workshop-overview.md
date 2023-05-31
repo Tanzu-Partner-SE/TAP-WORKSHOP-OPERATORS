@@ -14,10 +14,10 @@
 10. Security Analysis
 11. Vulnerability Scanning
 
-###### For more info, refer to VMware official documentation on TAP 1.3: 
+###### For more info, refer to VMware official documentation on TAP 1.5: 
 
 ```dashboard:open-url
-url: https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-overview.html
+url: https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.5/tap/overview.html
 ```
 
 ###### Short Video on TAP: 

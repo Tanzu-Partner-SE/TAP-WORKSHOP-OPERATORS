@@ -43,10 +43,13 @@ modules:
         exit_sign: Security Analysis
     exercises/13-security-analysis:
         name: Security Analysis
+        exit_sign: Tas Adapter
+    exercises/14-tasadapter:
+        name: Application Service Adapter
         exit_sign: Cleanup
-    exercises/14-Cleanup:
+    exercises/15-Cleanup:
         name: Cleanup
-        exit_sign: Next    
+        exit_sign: Cleanup
     workshop-summary:
         name: Workshop Summary
         exit_sign: Finish Workshop

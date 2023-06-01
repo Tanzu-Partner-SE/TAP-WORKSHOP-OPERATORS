@@ -135,10 +135,8 @@ sudo tanzu secret registry add tap-registry --username tapworkshopoperators --pa
 ![Secret Tap Registry](images/prepare-4.png)
 
 ```execute
-kubectl create secret docker-registry registry-credentials --docker-server=tapworkshopoperators.azurecr.io --docker-username=tapworkshopoperators --docker-password=$DOCKER_REGISTRY_PASSWORD -n tap-install
+sudo tanzu secret registry add registry-credentials --username tapworkshopoperators --password $DOCKER_REGISTRY_PASSWORD --server tapworkshopoperators.azurecr.io --export-to-all-namespaces --yes --namespace tap-workload
 ```
-
-![Secret Registry Credentials](images/prepare-5.png)
 
 <p style="color:blue"><strong> Verify the pods in kapp-controller namespace  and secretgen-controller </strong></p>
 
@@ -154,10 +152,6 @@ kubectl get pods -n secretgen-controller
 
 ```execute
 sed -i -r "s/password-registry/$DOCKER_REGISTRY_PASSWORD/g" $HOME/tap-values.yaml
-```
-
-```execute
-sed -i -r "s/password-registry/$DOCKER_REGISTRY_PASSWORD/g" $HOME/autoheal.sh
 ```
 
 ```execute

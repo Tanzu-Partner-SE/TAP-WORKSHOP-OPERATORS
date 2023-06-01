@@ -84,7 +84,95 @@ spec:
 EOF
 ```
 
+<p style="color:blue"><strong> Install Application Service Adapter to the cluster </strong></p>
 
+```
+tanzu package install tas-adapter --package-name application-service-adapter.tanzu.vmware.com --version "${TAS_ADAPTER_VERSION}" --values-file $HOME/tas-adapter-values.yaml --namespace tap-install
+```
+
+<p style="color:blue"><strong> Verify that the package install was successful </strong></p>
+
+```
+tanzu package installed get tas-adapter --namespace tap-install
+```
+
+<p style="color:blue"><strong> Get the Ingress IP and update the same to instructor to add in DNS </strong></p>
+
+```
+kubectl -n tanzu-system-ingress get service envoy -ojsonpath='{.status.loadBalancer.ingress[*].ip}'
+```
+
+<p style="color:blue"><strong> erify that the Contour HTTPProxy for the API endpoint is valid </strong></p>
+
+```
+kubectl -n tas-adapter-system get httpproxy korifi-api-proxy
+```
+
+<p style="color:blue"><strong> Target the Application Service Adapter API endpoint </strong></p>
+
+```
+cf api api.{{ session_namespace }}.tanzupartnerdemo.com
+```
+
+<p style="color:blue"><strong> Log in </strong></p>
+
+```
+cf login
+```
+
+<p style="color:blue"><strong> Use the cf curl command to verify the subject name of the logged-in user </strong></p>
+
+```
+cf curl /whoami
+```
+
+<p style="color:blue"><strong> Create the Cloud Foundry org and space </strong></p>
+
+```
+cf create-org {{ session_namespace }}
+```
+
+<p style="color:blue"><strong> Verify that the package install was successful </strong></p>
+
+```
+cf target -o {{ session_namespace }}
+```
+
+<p style="color:blue"><strong> Verify that the package install was successful </strong></p>
+
+```
+cf create-space spring-app
+```
+
+<p style="color:blue"><strong> Verify that the package install was successful </strong></p>
+
+```
+cf target -s spring-app
+```
+
+```
+cd $HOME/spring-music
+```
+
+<p style="color:blue"><strong> Build a runnable Spring Boot JAR file for the application </strong></p>
+
+```
+./gradlew clean assemble
+```
+
+<p style="color:blue"><strong> Use the cf CLI to deploy a sample app to the Application Service Adapter installation </strong></p>
+
+```
+cf push
+```
+
+<p style="color:blue"><strong> You should see output similar to the following: </strong></p>
+
+![App Service Adapter](images/cf-output1.png)
+
+<p style="color:blue"><strong> Access the Application from your browser </strong></p>
+
+![App Service Adapter](images/cf-output2.png)
 
 
 

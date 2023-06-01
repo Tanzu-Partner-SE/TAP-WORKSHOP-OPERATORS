@@ -13,6 +13,7 @@
 9. Explore Tech Docs and API Docs
 10. Security Analysis
 11. Vulnerability Scanning
+12. Application Service Adapter (CF)
 
 ###### For more info, refer to VMware official documentation on TAP 1.5: 
 

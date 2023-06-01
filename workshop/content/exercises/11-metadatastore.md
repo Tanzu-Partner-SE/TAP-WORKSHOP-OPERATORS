@@ -18,18 +18,10 @@ kubectl apply -f ~/metadata-store.yaml
 export METADATA_STORE_ACCESS_TOKEN=$(kubectl get secrets metadata-store-read-write-client -n metadata-store -o jsonpath="{.data.token}" | base64 -d)
 ```
 
-```execute
-sed -i -r "s/ACCESS-TOKEN/$METADATA_STORE_ACCESS_TOKEN/g" $HOME/tap-values.yaml
-```
-
-```execute
-sudo tanzu package installed update tap --values-file tap-values.yaml -n tap-install
-```
-
 <p style="color:blue"><strong> Query the app-tls-cert to get the CA Certificate </strong></p>
 
 ```execute
-kubectl get secret app-tls-cert -n metadata-store -o json | jq -r '.data."ca.crt"' | base64 -d > insight-ca.crt
+kubectl get secret tap-ingress-selfsigned-root-ca -n cert-manager -o json | jq -r '.data."ca.crt"' | base64 -d > insight-ca.crt
 ```
 
 <p style="color:blue"><strong> Find the external IP address of the metadata-store-app </strong></p>

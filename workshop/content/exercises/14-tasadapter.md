@@ -39,36 +39,36 @@ tanzu package available list --namespace tap-install
 <p style="color:blue"><strong> create namespace for API TLS SECRET </strong></p>
 
 ```execute-1
-kubectl create namespace api-tls-cfadapter
+kubectl create namespace cf-adapter
 ```
 <p style="color:blue"><strong> create namespace for APPS TLS SECRET </strong></p>
 
 ```execute-1
-kubectl create namespace apps-tls-cfadapter
+kubectl create namespace apps-cf-adapter
 ```
 
 <p style="color:blue"><strong> create namespace for APP Registry </strong></p>
 
 ```execute-1
-kubectl create namespace apps-reg-cfadapter
+kubectl create namespace cf-app-registry
 ```
 
 <p style="color:blue"><strong> Create secret for API  </strong></p>
 
 ```execute-1
-kubectl create secret tls api-secret-cfadapter --cert=$HOME/certs/live/api.{{ session_namespace }}.tanzupartnerdemo.com/fullchain.pem --key=$HOME/certs/live/api.{{ session_namespace }}.tanzupartnerdemo.com/privkey.pem  --namespace api-tls-cfadapter
+kubectl create secret tls cf-api-secret --cert=$HOME/certs/live/api.{{ session_namespace }}.tanzupartnerdemo.com/fullchain.pem --key=$HOME/certs/live/api.{{ session_namespace }}.tanzupartnerdemo.com/privkey.pem  --namespace api-tls-cfadapter
 ```
 
 <p style="color:blue"><strong> Create secret for APPS  </strong></p>
 
 ```execute-1
-kubectl create secret tls apps-secret-cfadapter --cert=$HOME/certs/live/apps.{{ session_namespace }}.tanzupartnerdemo.com/fullchain.pem --key=$HOME/certs/live/apps.{{ session_namespace }}.tanzupartnerdemo.com/privkey.pem  --namespace apps-tls-cfadapter
+kubectl create secret tls apps-cf-adapter --cert=$HOME/certs/live/apps.{{ session_namespace }}.tanzupartnerdemo.com/fullchain.pem --key=$HOME/certs/live/apps.{{ session_namespace }}.tanzupartnerdemo.com/privkey.pem  --namespace apps-tls-cfadapter
 ```
 
 <p style="color:blue"><strong> Create secret for App Registry  </strong></p>
 
 ```execute-1
-kubectl create secret docker-registry app-registry-cfadapter --docker-server=tapworkshopoperators.azurecr.io --docker-username=tapworkshopoperators --docker-password=$DOCKER_REGISTRY_PASSWORD --namespace=apps-reg-cfadapter
+kubectl create secret docker-registry cf-app-registry-cred --docker-server=tapworkshopoperators.azurecr.io --docker-username=tapworkshopoperators --docker-password=$DOCKER_REGISTRY_PASSWORD --namespace=cf-app-registry
 ```
 
 ```execute-1

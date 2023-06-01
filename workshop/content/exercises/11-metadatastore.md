@@ -3,7 +3,7 @@ Supply Chain Security Tools - Store saves software bills of materials (SBoMs) to
 <p style="color:blue"><strong> List version information for metadata store package  </strong></p>
 
 ```execute
-sudo tanzu package available list metadata-store.apps.tanzu.vmware.com --namespace tap-install
+sudo tanzu package available list metadata-store.apps.tanzu.vmware.com --namespace tap-workload
 ```
 
 <p style="color:blue"><strong> To create a read-write service account, run the following </strong></p>
@@ -23,7 +23,7 @@ sed -i -r "s/ACCESS-TOKEN/$METADATA_STORE_ACCESS_TOKEN/g" $HOME/tap-values.yaml
 ```
 
 ```execute
-sudo tanzu package installed update tap -f tap-values.yaml -n tap-install
+sudo tanzu package installed update tap -f tap-values.yaml -n tap-workload
 ```
 
 <p style="color:blue"><strong> Query the app-tls-cert to get the CA Certificate </strong></p>

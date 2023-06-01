@@ -10,7 +10,7 @@ url: http://tap-gui.{{ session_namespace }}.demo.tanzupartnerdemo.com/docs/defau
 ###### TechDocs plugin - VMware Docs
 
 ```dashboard:open-url
-url: https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-tap-gui-techdocs-usage.html
+url: https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.5/tap/tap-gui-techdocs-usage.html
 ```
 
 ###### Architecture - TechDocs
@@ -64,7 +64,7 @@ file: /home/eduk8s/tap-values.yaml
 ###### Refresh the packages with updated tap-values file
 
 ```execute
-sudo tanzu package installed update tap -f $HOME/tap-values.yaml -n tap-install
+sudo tanzu package installed update tap --values-file $HOME/tap-values.yaml -n tap-install
 ```
 
 ###### Access the Tech Docs in TAP-GUI 

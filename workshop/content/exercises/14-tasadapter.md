@@ -87,6 +87,12 @@ EOF
 <p style="color:blue"><strong> Install Application Service Adapter to the cluster </strong></p>
 
 ```
+cat $HOME/tas-adapter-values.yaml
+```
+
+<p style="color:blue"><strong> Install Application Service Adapter to the cluster </strong></p>
+
+```
 tanzu package install tas-adapter --package-name application-service-adapter.tanzu.vmware.com --version "${TAS_ADAPTER_VERSION}" --values-file $HOME/tas-adapter-values.yaml --namespace tap-install
 ```
 

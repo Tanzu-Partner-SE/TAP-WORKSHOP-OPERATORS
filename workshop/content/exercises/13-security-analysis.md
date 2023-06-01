@@ -28,7 +28,7 @@ The Security Analysis plug-in has a CVE page and a Package page. These are acces
 Click on deployed app {{ session_namespace }} by navigating to url
 
 ```dashboard:open-url
-https://tap-gui.workshop.tap.tanzupartnerdemo.com/supply-chain/host/tap-install/{{ session_namespace }}/source-scanner
+https://tap-gui.workshop.tap.tanzupartnerdemo.com/supply-chain/host/tap-workload/{{ session_namespace }}/source-scanner
 ```
 
 ![Security Analysis](images/SA-3.png)

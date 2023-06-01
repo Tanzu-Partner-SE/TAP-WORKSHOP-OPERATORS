@@ -108,5 +108,5 @@ The **Delivery** step of the supply chain apply the yaml file on a cluster. This
 For more detailed info reg supply chains, please refer to official vmware doc: 
 
 ```dashboard:open-url
-url: https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-scc-ootb-supply-chain-testing-scanning.html
+url: https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.5/tap/scc-ootb-supply-chain-testing-scanning.html
 ```

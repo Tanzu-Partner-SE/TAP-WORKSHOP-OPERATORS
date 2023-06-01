@@ -46,7 +46,7 @@ file: /home/eduk8s/scanpolicy.yaml
 line: 18
 ```
 
-Add the CVE **GHSA-36p3-wjmg-h94x** to ignoreCves list as shown in below image: 
+Add the CVE **CVE-2022-22965** to ignoreCves list as shown in below image: 
 
 ref Image: ![Scanpolicy](images/scan-2.png)
 

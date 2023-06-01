@@ -56,13 +56,13 @@ kubectl create namespace cf-app-registry
 <p style="color:blue"><strong> Create secret for API  </strong></p>
 
 ```execute-1
-kubectl create secret tls cf-api-secret --cert=$HOME/certs/live/api.{{ session_namespace }}.tanzupartnerdemo.com/fullchain.pem --key=$HOME/certs/live/api.{{ session_namespace }}.tanzupartnerdemo.com/privkey.pem  --namespace api-tls-cfadapter
+kubectl create secret tls cf-api-secret --cert=$HOME/certs/live/api.{{ session_namespace }}.tanzupartnerdemo.com/fullchain.pem --key=$HOME/certs/live/api.{{ session_namespace }}.tanzupartnerdemo.com/privkey.pem  --namespace cf-adapter
 ```
 
 <p style="color:blue"><strong> Create secret for APPS  </strong></p>
 
 ```execute-1
-kubectl create secret tls apps-cf-adapter --cert=$HOME/certs/live/apps.{{ session_namespace }}.tanzupartnerdemo.com/fullchain.pem --key=$HOME/certs/live/apps.{{ session_namespace }}.tanzupartnerdemo.com/privkey.pem  --namespace apps-tls-cfadapter
+kubectl create secret tls cf-apps-secret --cert=$HOME/certs/live/apps.{{ session_namespace }}.tanzupartnerdemo.com/fullchain.pem --key=$HOME/certs/live/apps.{{ session_namespace }}.tanzupartnerdemo.com/privkey.pem  --namespace apps-cf-adapter
 ```
 
 <p style="color:blue"><strong> Create secret for App Registry  </strong></p>

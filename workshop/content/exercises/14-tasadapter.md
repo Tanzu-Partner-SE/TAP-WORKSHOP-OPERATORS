@@ -23,7 +23,7 @@ kubectl get ns tap-install
 <p style="color:blue"><strong> Create a registry secret to store your VMware Tanzu Network credentials in the tap-install namespace </strong></p>
 
 ```execute-1
-tanzu secret registry add tanzunet-tas-adapter-registry --username "eknath.reddy09@gmail.com  --password Newstart@1  --server registry.tanzu.vmware.com --export-to-all-namespaces --yes  --namespace tap-install"
+tanzu secret registry add tanzunet-tas-adapter-registry --username "eknath.reddy09@gmail.com"  --password "Newstart@1"  --server registry.tanzu.vmware.com --export-to-all-namespaces --yes  --namespace tap-install
 ```
 <p style="color:blue"><strong> Add the Application Service Adapter package repository to the cluster </strong></p>
 

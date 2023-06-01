@@ -46,15 +46,45 @@ kubectl create namespace api-tls-cfadapter
 ```execute-1
 kubectl create namespace apps-tls-cfadapter
 ```
+
+<p style="color:blue"><strong> create namespace for APP Registry </strong></p>
+
+```execute-1
+kubectl create namespace apps-reg-cfadapter
+```
+
 <p style="color:blue"><strong> Create secret for API  </strong></p>
 
 ```execute-1
-kubectl create secret tls --cert= --key=  --namespace api-tls-cfadapter
+kubectl create secret tls api-secret-cfadapter --cert=~/certs/live/api.{{ session_namespace }}.tanzupartnerdemo.com/fullchain.pem --key=~/certs/live/api.{{ session_namespace }}.tanzupartnerdemo.com/prikey.pem  --namespace api-tls-cfadapter
 ```
 
 <p style="color:blue"><strong> Create secret for APPS  </strong></p>
 
 ```execute-1
-kubectl create secret tls --cert= --key=  --namespace apps-tls-cfadapter
+kubectl create secret tls apps-secret-cfadapter --cert=~/certs/live/apps.{{ session_namespace }}.tanzupartnerdemo.com/fullchain.pem --key=~/certs/live/apps.{{ session_namespace }}.tanzupartnerdemo.com/prikey.pem  --namespace apps-tls-cfadapter
 ```
+
+<p style="color:blue"><strong> Create secret for App Registry  </strong></p>
+
+```execute-1
+kubectl create secret docker-registry app-registry-cfadapter --docker-server=tapworkshopoperators.azurecr.io --docker-username=tapworkshopoperators --docker-password=$DOCKER_REGISTRY_PASSWORD --namespace=apps-reg-cfadapter
+```
+
+```
+kubectl apply -f - <<EOF
+---
+apiVersion: secretgen.carvel.dev/v1alpha1
+kind: SecretExport
+metadata:
+  name: app-registry-cfadapter
+  namespace: apps-reg-cfadapter
+spec:
+  toNamespace: "*"
+EOF
+```
+
+
+
+
 

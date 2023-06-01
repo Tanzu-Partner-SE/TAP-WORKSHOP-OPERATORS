@@ -3,7 +3,7 @@ Supply Chain Security Tools - Store saves software bills of materials (SBoMs) to
 <p style="color:blue"><strong> List version information for metadata store package  </strong></p>
 
 ```execute
-sudo tanzu package available list metadata-store.apps.tanzu.vmware.com --namespace tap-workload
+sudo tanzu package available list metadata-store.apps.tanzu.vmware.com --namespace tap-install
 ```
 
 <p style="color:blue"><strong> To create a read-write service account, run the following </strong></p>

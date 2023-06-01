@@ -54,7 +54,7 @@ ref Image: ![Scanpolicy](images/scan-2.png)
 kubectl apply -f $HOME/scanpolicy.yaml -n tap-workload
 ```
 
-Soon after the scanpolicy is updated, you can see the deployment progressing in **Terminal-2**. Wait for a min and it will pause again
+Soon after the scanpolicy is updated, you can see the deployment progressing in **Terminal-2**. 
 
 ```execute
 sudo tanzu apps workload get partnertapdemo-testscanpolicy -n tap-workload
@@ -62,27 +62,6 @@ sudo tanzu apps workload get partnertapdemo-testscanpolicy -n tap-workload
 
 ```dashboard:open-url
 url: http://tap-gui.{{ session_namespace }}.demo.tanzupartnerdemo.com/supply-chain/host/tap-workload/partnertapdemo-testscanpolicy
-```
-
-ref Image: ![Scanpolicy](images/scan-3.png)
-
-Add the CVE **CVE-2022-22965** to ignoreCves list as shown in below image: 
-
-```editor:open-file
-file: /home/eduk8s/scanpolicy.yaml
-line: 18
-```
-
-ref Image: ![Scanpolicy](images/scan-4.png)
-
-```execute
-kubectl apply -f $HOME/scanpolicy.yaml -n tap-workload
-```
-
-After updating the scanpolicy, you can see the progress of application going through
-
-```execute
-sudo tanzu apps workload get partnertapdemo-testscanpolicy -n tap-workload
 ```
 
 ref Image: ![Scanpolicy](images/scan-5.png)

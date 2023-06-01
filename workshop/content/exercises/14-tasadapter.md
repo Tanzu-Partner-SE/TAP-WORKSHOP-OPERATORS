@@ -71,7 +71,7 @@ kubectl create secret tls apps-secret-cfadapter --cert=$HOME/certs/live/apps.{{ 
 kubectl create secret docker-registry app-registry-cfadapter --docker-server=tapworkshopoperators.azurecr.io --docker-username=tapworkshopoperators --docker-password=$DOCKER_REGISTRY_PASSWORD --namespace=apps-reg-cfadapter
 ```
 
-```
+```execute-1
 kubectl apply -f - <<EOF
 ---
 apiVersion: secretgen.carvel.dev/v1alpha1
@@ -86,89 +86,89 @@ EOF
 
 <p style="color:blue"><strong> Install Application Service Adapter to the cluster </strong></p>
 
-```
+```execute-1
 cat $HOME/tas-adapter-values.yaml
 ```
 
 <p style="color:blue"><strong> Install Application Service Adapter to the cluster </strong></p>
 
-```
+```execute-1
 tanzu package install tas-adapter --package-name application-service-adapter.tanzu.vmware.com --version "${TAS_ADAPTER_VERSION}" --values-file $HOME/tas-adapter-values.yaml --namespace tap-install
 ```
 
 <p style="color:blue"><strong> Verify that the package install was successful </strong></p>
 
-```
+```execute-1
 tanzu package installed get tas-adapter --namespace tap-install
 ```
 
 <p style="color:blue"><strong> Get the Ingress IP and update the same to instructor to add in DNS </strong></p>
 
-```
+```execute-1
 kubectl -n tanzu-system-ingress get service envoy -ojsonpath='{.status.loadBalancer.ingress[*].ip}'
 ```
 
 <p style="color:blue"><strong> erify that the Contour HTTPProxy for the API endpoint is valid </strong></p>
 
-```
+```execute-1
 kubectl -n tas-adapter-system get httpproxy korifi-api-proxy
 ```
 
 <p style="color:blue"><strong> Target the Application Service Adapter API endpoint </strong></p>
 
-```
+```execute-1
 cf api api.{{ session_namespace }}.tanzupartnerdemo.com
 ```
 
 <p style="color:blue"><strong> Log in </strong></p>
 
-```
+```execute-1
 cf login
 ```
 
 <p style="color:blue"><strong> Use the cf curl command to verify the subject name of the logged-in user </strong></p>
 
-```
+```execute-1
 cf curl /whoami
 ```
 
 <p style="color:blue"><strong> Create the Cloud Foundry org and space </strong></p>
 
-```
+```execute-1
 cf create-org {{ session_namespace }}
 ```
 
 <p style="color:blue"><strong> Verify that the package install was successful </strong></p>
 
-```
+```execute-1
 cf target -o {{ session_namespace }}
 ```
 
 <p style="color:blue"><strong> Verify that the package install was successful </strong></p>
 
-```
+```execute-1
 cf create-space spring-app
 ```
 
 <p style="color:blue"><strong> Verify that the package install was successful </strong></p>
 
-```
+```execute-1
 cf target -s spring-app
 ```
 
-```
+```execute-1
 cd $HOME/spring-music
 ```
 
 <p style="color:blue"><strong> Build a runnable Spring Boot JAR file for the application </strong></p>
 
-```
+```execute-1
 ./gradlew clean assemble
 ```
 
 <p style="color:blue"><strong> Use the cf CLI to deploy a sample app to the Application Service Adapter installation </strong></p>
 
-```
+```execute-1
 cf push
 ```
 

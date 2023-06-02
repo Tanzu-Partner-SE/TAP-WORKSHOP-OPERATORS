@@ -31,7 +31,7 @@ kubectl apply -f $HOME/scanpolicy.yaml -n tap-workload
 ```
 
 ```execute
-kubectl apply -f $HOME/secret-http.yaml -n tap-workload
+kubectl apply -f $HOME/secret-git.yaml -n tap-workload
 ```
 
 ###### Now its time to deploy an application on TAP. Provide the gitrepo that you have forked in the beginning. 

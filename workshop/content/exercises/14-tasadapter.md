@@ -126,7 +126,9 @@ kubectl -n tas-adapter-system get httpproxy korifi-api-proxy
 cf api api.{{ session_namespace }}.tanzupartnerdemo.com
 ```
 
-<p style="color:blue"><strong> Log in </strong></p>
+<p style="color:blue"><strong> Log in, select option 1 </strong></p>
+
+![CF Login](images/cflogin-1.png)
 
 ```execute-1
 cf login

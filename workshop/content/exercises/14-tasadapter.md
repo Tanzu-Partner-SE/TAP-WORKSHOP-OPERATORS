@@ -8,6 +8,12 @@ With Application Service Adapter, development teams using Tanzu Application Serv
 url: https://docs.vmware.com/en/Application-Service-Adapter-for-VMware-Tanzu-Application-Platform/1.2/tas-adapter/install-prerequisites.html
 ```
 
+<p style="color:blue"><strong> Verify CF cli version </strong></p>
+
+```execute-1
+cf version
+```
+
 <p style="color:blue"><strong> Set up environment variables for the installation </strong></p>
 
 ```execute-1

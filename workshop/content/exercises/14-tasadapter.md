@@ -77,8 +77,8 @@ kubectl apply -f - <<EOF
 apiVersion: secretgen.carvel.dev/v1alpha1
 kind: SecretExport
 metadata:
-  name: app-registry-cfadapter
-  namespace: apps-reg-cfadapter
+  name: cf-app-registry-cred
+  namespace: cf-app-registry
 spec:
   toNamespace: "*"
 EOF
@@ -93,7 +93,7 @@ cat $HOME/tas-adapter-values.yaml
 <p style="color:blue"><strong> Install Application Service Adapter to the cluster </strong></p>
 
 ```execute-1
-tanzu package install tas-adapter --package-name application-service-adapter.tanzu.vmware.com --version "${TAS_ADAPTER_VERSION}" --values-file $HOME/tas-adapter-values.yaml --namespace tap-install
+tanzu package install tas-adapter --package application-service-adapter.tanzu.vmware.com --version "${TAS_ADAPTER_VERSION}" --values-file $HOME/tas-adapter-values.yaml --namespace tap-install
 ```
 
 <p style="color:blue"><strong> Verify that the package install was successful </strong></p>

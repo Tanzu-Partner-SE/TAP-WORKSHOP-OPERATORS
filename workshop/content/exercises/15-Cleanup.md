@@ -37,7 +37,7 @@ tanzu apps workload list -n tap-workload
 ###### Delete the TAP Package, this process takes around 3-4 mins to complete. 
 
 ```execute
-sudo tanzu package installed delete tap -n tap-workload -y
+sudo tanzu package installed delete tap -n tap-install -y
 ```
 
 ###### Clear the DNS entries created in previous sections: 

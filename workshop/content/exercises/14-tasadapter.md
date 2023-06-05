@@ -186,6 +186,10 @@ cf push
 
 <p style="color:blue"><strong> Access the Application from your browser </strong></p>
 
+```dashboard:open-url
+url: https://spring-music.apps.tap-demos-w02-s002.tanzupartnerdemo.com
+```
+
 ![App Service Adapter](images/cf-output2.png)
 
 

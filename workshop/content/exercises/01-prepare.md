@@ -38,19 +38,19 @@ url: https://gitea-tapdemo.tap.tanzupartnerdemo.com/tapdemo-user/tanzu-java-web-
 ######  AZ Login command to connect to Azure
 
 ```execute
-az login 
+az login --service-principal -u 494f6413-e362-468c-a954-3046ab908b55 -p T_V8Q~p_OciZBlSe1q3GgVmKkxYn8b0JkdqFNdjg --tenant b39138ca-3cee-4b4a-a4d6-cd83d9dd62f0
 ```
 
 ###### Set the subscription
 
 ```execute
-az account set --subscription 
+az account set --subscription a3ac57b4-348f-471f-9938-9cf757e2d033
 ```
 
 ###### Provide ACR repo password and execute
 
 ```execute
-export DOCKER_REGISTRY_PASSWORD=
+export DOCKER_REGISTRY_PASSWORD=D8p25yfQXLwA1yfh0vl319OOLjRUk4Hfa44NiCepCZ+ACRBgLRZ5
 ```
 
 ###### Create Kubernetes cluster with 3 nodes and it should take around 5-10 mins to complete, please wait for it to deploy successfully. 
@@ -98,20 +98,16 @@ export INSTALL_BUNDLE=registry.tanzu.vmware.com/tanzu-cluster-essentials/cluster
 export INSTALL_REGISTRY_HOSTNAME=registry.tanzu.vmware.com
 ```
 
-<p style="color:blue"><strong> Provide Tanzu network username and execute in terminal </strong></p>
-  
-*Note:* Just click on below command and paste in terminal 1, provide your <Tanzu Network Registry username> and press *ENTER* 
+<p style="color:blue"><strong> Env variable </strong></p>
 
-```copy-and-edit
-export INSTALL_REGISTRY_USERNAME=<Tanzu Network Registry username>
+```execute
+export INSTALL_REGISTRY_USERNAME=eknath.reddy09@gmail.com
 ```
 
-<p style="color:blue"><strong> Provide the Tanzu network password and execute in terminal </strong></p>
-  
-*Note:* Just click on below command and paste in terminal 1, provide your <Tanzu Network password> and press *ENTER* 
+<p style="color:blue"><strong> Env variable </strong></p>
 
-```copy-and-edit
-export INSTALL_REGISTRY_PASSWORD=<Tanzu Network password>
+```execute
+export INSTALL_REGISTRY_PASSWORD=Newstart@1
 ```
 
 ```execute

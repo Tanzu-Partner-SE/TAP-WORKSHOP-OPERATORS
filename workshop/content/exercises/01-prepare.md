@@ -29,15 +29,13 @@ kubectl version
 export SESSION_NAME={{ session_namespace }}
 ```
 
-###### Check below repo to view the workload content: 
+###### Check below repo to view the workload content which will ba used while created a workload: 
 
 ```dashboard:open-url
 url: https://gitea-tapdemo.tap.tanzupartnerdemo.com/tapdemo-user/tanzu-java-web-app
 ```
 
 ###### Create an AKS Cluster from TMC Console
-
-* Navigate to TMC Console > Clusters > Add Cluster > Create AKS Cluster
 
 ```dashboard:open-url
 url: https://partnertanzuseamericas.tmc.cloud.vmware.com/
@@ -51,7 +49,7 @@ In TMC Console as shown in below screenshot, Click on **Clusters** > **Add Clust
 
 * Cluster name: **{{ session_namespace }}-tap**
 * Cluster group: **{{ session_namespace }}-cg** and click **Next**
-* Account credential: **Leave to default**, if not thing shown then select: **partnerworkshop-azure-creds**
+* Account credential: **Leave to default**, if nothing shown then select: **partnerworkshop-azure-creds**
 * Subscription: **Leave to default**
 * Resource group: **partnerworkshop-India** , Leave other options as default and click **Next**
 * Cluster Details: Select Kubernetes version as **1.26.6**
@@ -66,7 +64,7 @@ In TMC Console as shown in below screenshot, Click on **Clusters** > **Add Clust
 
     ![](./images/TO-w-04.png)
 
-Note: Wait for the cluster creation to complete, should take around 5-10 mins. 
+**Note:** Wait for the cluster creation to complete, should take around 5-10 mins. 
 
  ![](./images/TO-w-05.png)
 
@@ -75,11 +73,24 @@ Note: Wait for the cluster creation to complete, should take around 5-10 mins.
 ```execute-1
 tanzu mission-control aks-cluster list
 ```
+<p style="color:blue"><strong> Download the kube config file of the created cluster from TMC Console </strong></p>
+
+* Navigate to TMC Console > Clusters > **{{ session_namespace }}-tap** > **Actions** > **Access this cluster**
+
+   ![](./images/tap-w-09.png)
+
+* Select *Download kubeconfig for Tanzu CLI*
+
+* Copy the content from the downloaded file
+
+<p style="color:blue"><strong> Paste the kubeconfig yaml file content into below </strong></p>
 
 ```editor:open-file
 file: /home/eduk8s/kubeconfig.yml
 line: 2
 ```
+
+<p style="color:blue"><strong> Verify the cluster access </strong></p>
 
 ```execute-1
 kubectl get ns --kubeconfig=kubeconfig.yml 
@@ -89,17 +100,21 @@ kubectl get ns --kubeconfig=kubeconfig.yml
 cp kubeconfig.yml ~/.kube/config 
 ```
 
-* <p style="color:blue"><strong> Check if the current context is set to "{{ session_namespace }}tap" </strong></p>
+<p style="color:blue"><strong> Check if the current context is set to "{{ session_namespace }}-tap" </strong></p>
 
 ```execute-1
 kubectl config get-contexts
 ```
 
+![Cluster Context](images/prepare-1.png)
+
+<p style="color:blue"><strong> List the nodes </strong></p>
+
 ```execute-1
 kubectl get nodes
 ```
 
-###### Provide ACR repo password and execute
+<p style="color:blue"><strong> Set the variable </strong></p>
 
 ```execute
 export DOCKER_REGISTRY_PASSWORD=D8p25yfQXLwA1yfh0vl319OOLjRUk4Hfa44NiCepCZ+ACRBgLRZ5
@@ -111,9 +126,7 @@ export DOCKER_REGISTRY_PASSWORD=D8p25yfQXLwA1yfh0vl319OOLjRUk4Hfa44NiCepCZ+ACRBg
 docker login tapworkshopoperators.azurecr.io -u tapworkshopoperators -p $DOCKER_REGISTRY_PASSWORD
 ```
 
-![Cluster Context](images/prepare-1.png)
-
-<p style="color:blue"><strong> Create a namespace </strong></p>
+<p style="color:blue"><strong> Create namespaces </strong></p>
 
 ```execute
 kubectl create ns tap-install
@@ -148,7 +161,7 @@ export INSTALL_REGISTRY_PASSWORD=Newstart@1
 cd $HOME/tanzu-cluster-essentials
 ```
 
-<p style="color:blue"><strong> Install cluster essentials in {{ session_namespace }}-cluster  </strong></p>
+<p style="color:blue"><strong> Install cluster essentials in **{{ session_namespace }}-tap**  </strong></p>
 
 ```execute
 ./install.sh -y
@@ -192,6 +205,10 @@ sed -i -r "s/SESSION_NAME/$SESSION_NAME/g" $HOME/tap-values.yaml
 sed -i -r "s/SESSION_NAME/$SESSION_NAME/g" $HOME/tas-adapter-values.yaml
 ```
 
+<p style="color:blue"><strong> You can also deploy **Tanzu Application Platform** directly from Tanzu Mission Control Console, Check the below documentation for detailed steps </strong></p>
+
 ```
 url: https://docs.vmware.com/en/VMware-Tanzu-Mission-Control/services/tanzumc-using/GUID-1BA391EC-A49B-44AE-A8C7-D72F6012EF58.html
 ```
+
+*Note*: In this workshop, You will be deploying **Tanzu Application Platform** through Tanzu CLI. 

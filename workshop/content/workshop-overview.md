@@ -15,10 +15,10 @@
 11. Vulnerability Scanning
 12. Application Service Adapter (CF)
 
-###### For more info, refer to VMware official documentation on TAP 1.5: 
+###### For more info, refer to VMware official documentation on TAP 1.7: 
 
 ```dashboard:open-url
-url: https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.5/tap/overview.html
+url: https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.7/tap/overview.html
 ```
 
 ###### Short Video on TAP: 

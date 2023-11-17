@@ -73,21 +73,13 @@ In TMC Console as shown in below screenshot, Click on **Clusters** > **Add Clust
 ```execute-1
 tanzu mission-control aks-cluster list
 ```
+
+* Check the cluster **aks.ca215822.partnerworkshop-india.{{ session_namespace }}-tap** is created and **Ready**
+
 <p style="color:blue"><strong> Download the kube config file of the created cluster from TMC Console </strong></p>
 
-* Navigate to TMC Console > Clusters > **{{ session_namespace }}-tap** > **Actions** > **Access this cluster**
-
-   ![](./images/tap-w-09.png)
-
-* Select *Download kubeconfig for Tanzu CLI*
-
-* Copy the content from the downloaded file
-
-<p style="color:blue"><strong> Paste the kubeconfig yaml file content into below </strong></p>
-
-```editor:open-file
-file: /home/eduk8s/kubeconfig.yml
-line: 2
+```execute-1
+tanzu mission-control cluster kubeconfig get aks.ca215822.partnerworkshop-india.{{ session_namespace }}-tap -p aks -m aks > kubeconfig.yml
 ```
 
 <p style="color:blue"><strong> Verify the cluster access </strong></p>

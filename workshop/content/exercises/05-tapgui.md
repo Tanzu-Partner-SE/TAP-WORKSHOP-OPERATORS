@@ -53,7 +53,7 @@ Example for ref:
 url: https://tap-gui.workshop.tap.tanzupartnerdemo.com/docs/default/component/tap-gui-component/github-settings/
 ```
 
-###### Remove (#) from lines 69 - 75
+###### Remove (#) from lines 66 - 72
 
 ```editor:open-file
 file: ~/tap-values.yaml

@@ -35,34 +35,81 @@ export SESSION_NAME={{ session_namespace }}
 url: https://gitea-tapdemo.tap.tanzupartnerdemo.com/tapdemo-user/tanzu-java-web-app
 ```
 
-######  AZ Login command to connect to Azure
+###### Create an AKS Cluster from TMC Console
 
-```execute
-az login --service-principal -u 494f6413-e362-468c-a954-3046ab908b55 -p T_V8Q~p_OciZBlSe1q3GgVmKkxYn8b0JkdqFNdjg --tenant b39138ca-3cee-4b4a-a4d6-cd83d9dd62f0
+* Navigate to TMC Console > Clusters > Add Cluster > Create AKS Cluster
+
+```dashboard:open-url
+url: https://partnertanzuseamericas.tmc.cloud.vmware.com/
+```
+  ![](./images/TO-w-02.png)
+
+###### Provide below details:
+
+* Cluster name: **{{ session_namespace }}-tap**
+* Cluster group: **{{ session_namespace }}-cg** and click **Next**
+* Account credential: **Leave to default**, if not thing shown then select: 
+* Subscription: **Leave to default**
+* Resource group: **explorebooth-rg** , Leave other options as default and click **Next**
+* Select the Nodepool Compute as below:
+
+  * Availability Zones: **1**
+  * Edit the Node size and select **Standard_DS4_V3**
+  * Scale Method: **Manual** and nodes to **3**
+  * Click **Next** and **Create**
+   
+    ![](./images/TO-w-03.png)
+
+    ![](./images/TO-w-04.png)
+
+Note: Wait for the cluster creation to complete, should take around 5-10 mins. 
+
+###### Connect to AKS Cluster 
+
+**Authenticate to TMC CLI**
+
+If you don't have an API token to access TMC, see [How Do I Generate API Tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) documentation.   
+
+* Provide your API Token and press enter
+* For the login context name, leave it to default
+
+```execute-1
+tmc login -n {{ session_namespace }} --no-configure
 ```
 
-###### Set the subscription
+* Configure environment defaults that make the CLI easier to use. 
 
-```execute
-az account set --subscription a3ac57b4-348f-471f-9938-9cf757e2d033
+```execute-1
+tmc system context configure -l "log" -m attached -p attached
 ```
+
+```execute-1
+tmc cluster auth kubeconfig get {{ session_namespace }} > kubeconfig.yaml 
+```
+
+```execute-1
+kubectl get po -A --kubeconfig=kubeconfig.yaml
+```
+
+```execute-1
+cp kubeconfig.yaml ~/.kube/config 
+```
+
+* Check the current context
+
+```execute-1
+kubectl config get-contexts
+```
+
+```execute-1
+kubectl get nodes
+```
+
 
 ###### Provide ACR repo password and execute
 
 ```execute
 export DOCKER_REGISTRY_PASSWORD=D8p25yfQXLwA1yfh0vl319OOLjRUk4Hfa44NiCepCZ+ACRBgLRZ5
-```
-
-###### Create Kubernetes cluster with 3 nodes and it should take around 5-10 mins to complete, please wait for it to deploy successfully. 
- 
-```execute
-az aks create --resource-group tapdemo-cluster-RG --name {{ session_namespace }}-cluster --subscription a3ac57b4-348f-471f-9938-9cf757e2d033 --node-count 3 --enable-addons monitoring --generate-ssh-keys --node-vm-size Standard_B8ms -z 1 --enable-cluster-autoscaler --min-count 3 --max-count 3
-```
-
-<p style="color:blue"><strong> Get credentials of cluster"{{ session_namespace }}-cluster" </strong></p>
-
-```execute
-az aks get-credentials --resource-group tapdemo-cluster-RG --name {{ session_namespace }}-cluster
 ```
   
 <p style="color:blue"><strong> Docker login to image repo </strong></p>

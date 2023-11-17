@@ -15,3 +15,5 @@ After the container is built, it updates every time there’s a new code commit 
 ![Local host](exercises/images/tap-overview.png)
 
 This workshop will give you an understanding of how operators will interact with the platform to enable iterative development cycles, and secure, automated delivery to production.
+
+![Local host](exercises/images/2023-11-01_21-28-36.gif)

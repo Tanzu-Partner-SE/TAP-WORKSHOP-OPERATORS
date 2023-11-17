@@ -18,6 +18,24 @@ cat $HOME/scanpolicy.yaml
 kubectl apply -f $HOME/developer.yaml -n tap-workload
 ```
 
+<p style="color:blue"><strong> Deploy Secret overlay for source scanning </strong></p>
+
+```execute
+kubectl apply -f $HOME/secret-overlay.yaml
+```
+
+###### Remove (#) from lines 3 - 6 of tap-values.yaml
+
+```editor:open-file
+file: /home/eduk8s/tap-values.yaml
+```
+
+###### Refresh the packages with updated tap-values file
+
+```execute
+sudo tanzu package installed update tap --values-file $HOME/tap-values.yaml -n tap-install
+```
+
 <p style="color:blue"><strong> Deploy Tekton pipeline </strong></p>
 
 ```execute
@@ -35,7 +53,6 @@ kubectl apply -f $HOME/secret-git.yaml -n tap-workload
 ```
 
 ###### Now its time to deploy an application on TAP. Provide the gitrepo that you have forked in the beginning. 
-
 
 ```execute
 sudo tanzu apps workload create {{ session_namespace }}  --git-repo https://gitea-tapdemo.tap.tanzupartnerdemo.com/tapdemo-user/partnertapdemo --git-branch main --type web --label apps.tanzu.vmware.com/has-tests=true --label app.kubernetes.io/part-of=partnertapdemo -n tap-workload --yes
@@ -156,4 +173,3 @@ url: http://{{ session_namespace }}-fromimage.tap-workload.{{ session_namespace 
 ```terminal:interrupt
 session: 2
 ```
-

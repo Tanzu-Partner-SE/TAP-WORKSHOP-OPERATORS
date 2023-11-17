@@ -42,20 +42,24 @@ url: https://gitea-tapdemo.tap.tanzupartnerdemo.com/tapdemo-user/tanzu-java-web-
 ```dashboard:open-url
 url: https://partnertanzuseamericas.tmc.cloud.vmware.com/
 ```
+
+In TMC Console as shown in below screenshot, Click on **Clusters** > **Add Cluster** > **Create AKS cluster**
+
   ![](./images/TO-w-02.png)
 
 ###### Provide below details:
 
 * Cluster name: **{{ session_namespace }}-tap**
 * Cluster group: **{{ session_namespace }}-cg** and click **Next**
-* Account credential: **Leave to default**, if not thing shown then select: 
+* Account credential: **Leave to default**, if not thing shown then select: **partnerworkshop-azure-creds**
 * Subscription: **Leave to default**
 * Resource group: **partnerworkshop-India** , Leave other options as default and click **Next**
+* Cluster Details: Select Kubernetes version as **1.26.6**
 * Select the Nodepool Compute as below:
 
   * Availability Zones: **1**
   * Edit the Node size and select **Standard_DS4_V3**
-  * Scale Method: **Manual** and nodes to **3**
+  * Scale Method: **Manual** and nodes to **4**
   * Click **Next** and **Create**
    
     ![](./images/TO-w-03.png)
@@ -64,38 +68,28 @@ url: https://partnertanzuseamericas.tmc.cloud.vmware.com/
 
 Note: Wait for the cluster creation to complete, should take around 5-10 mins. 
 
+ ![](./images/TO-w-05.png)
+
 ###### Connect to AKS Cluster 
 
-**Authenticate to TMC CLI**
-
-If you don't have an API token to access TMC, see [How Do I Generate API Tokens](https://docs.vmware.com/en/VMware-Cloud-services/services/Using-VMware-Cloud-Services/GUID-E2A3B1C1-E9AD-4B00-A6B6-88D31FCDDF7C.html) documentation.   
-
-* Provide your API Token and press enter
-* For the login context name, leave it to default
-
 ```execute-1
-tmc login -n {{ session_namespace }} --no-configure
+tanzu mission-control aks-cluster list
 ```
 
-* Configure environment defaults that make the CLI easier to use. 
-
-```execute-1
-tmc system context configure -l "log" -m attached -p attached
+```editor:open-file
+file: /home/eduk8s/kubeconfig.yml
+line: 2
 ```
 
 ```execute-1
-tmc cluster auth kubeconfig get {{ session_namespace }}-tap > kubeconfig.yaml 
+kubectl get ns --kubeconfig=kubeconfig.yml 
 ```
 
 ```execute-1
-kubectl get po -A --kubeconfig=kubeconfig.yaml
+cp kubeconfig.yml ~/.kube/config 
 ```
 
-```execute-1
-cp kubeconfig.yaml ~/.kube/config 
-```
-
-* Check the current context
+* <p style="color:blue"><strong> Check if the current context is set to "{{ session_namespace }}tap" </strong></p>
 
 ```execute-1
 kubectl config get-contexts
@@ -117,12 +111,6 @@ export DOCKER_REGISTRY_PASSWORD=D8p25yfQXLwA1yfh0vl319OOLjRUk4Hfa44NiCepCZ+ACRBg
 docker login tapworkshopoperators.azurecr.io -u tapworkshopoperators -p $DOCKER_REGISTRY_PASSWORD
 ```
 
-<p style="color:blue"><strong> Check if the current context is set to "{{ session_namespace }}-cluster" </strong></p>
-
-```execute
-kubectl config get-contexts
-```
-
 ![Cluster Context](images/prepare-1.png)
 
 <p style="color:blue"><strong> Create a namespace </strong></p>
@@ -140,7 +128,7 @@ kubectl create ns tap-workload
 ![Env](images/prepare-2.png)
 
 ```execute
-export INSTALL_BUNDLE=registry.tanzu.vmware.com/tanzu-cluster-essentials/cluster-essentials-bundle@sha256:79abddbc3b49b44fc368fede0dab93c266ff7c1fe305e2d555ed52d00361b446
+export INSTALL_BUNDLE=registry.tanzu.vmware.com/tanzu-cluster-essentials/cluster-essentials-bundle@sha256:ca8584ff2ad4a4cf7a376b72e84fd9ad84ac6f38305767cdfb12309581b521f5
 export INSTALL_REGISTRY_HOSTNAME=registry.tanzu.vmware.com
 ```
 
@@ -202,4 +190,8 @@ sed -i -r "s/SESSION_NAME/$SESSION_NAME/g" $HOME/tap-values.yaml
 
 ```execute
 sed -i -r "s/SESSION_NAME/$SESSION_NAME/g" $HOME/tas-adapter-values.yaml
+```
+
+```
+url: https://docs.vmware.com/en/VMware-Tanzu-Mission-Control/services/tanzumc-using/GUID-1BA391EC-A49B-44AE-A8C7-D72F6012EF58.html
 ```

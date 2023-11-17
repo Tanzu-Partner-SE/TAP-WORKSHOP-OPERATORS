@@ -50,7 +50,7 @@ url: https://partnertanzuseamericas.tmc.cloud.vmware.com/
 * Cluster group: **{{ session_namespace }}-cg** and click **Next**
 * Account credential: **Leave to default**, if not thing shown then select: 
 * Subscription: **Leave to default**
-* Resource group: **explorebooth-rg** , Leave other options as default and click **Next**
+* Resource group: **partnerworkshop-India** , Leave other options as default and click **Next**
 * Select the Nodepool Compute as below:
 
   * Availability Zones: **1**
@@ -84,7 +84,7 @@ tmc system context configure -l "log" -m attached -p attached
 ```
 
 ```execute-1
-tmc cluster auth kubeconfig get {{ session_namespace }} > kubeconfig.yaml 
+tmc cluster auth kubeconfig get {{ session_namespace }}-tap > kubeconfig.yaml 
 ```
 
 ```execute-1
@@ -104,7 +104,6 @@ kubectl config get-contexts
 ```execute-1
 kubectl get nodes
 ```
-
 
 ###### Provide ACR repo password and execute
 

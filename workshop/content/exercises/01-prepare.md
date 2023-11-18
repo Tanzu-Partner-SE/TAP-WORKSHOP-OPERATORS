@@ -199,7 +199,7 @@ sed -i -r "s/SESSION_NAME/$SESSION_NAME/g" $HOME/tas-adapter-values.yaml
 
 <p style="color:blue"><strong> You can also deploy **Tanzu Application Platform** directly from Tanzu Mission Control Console, Check the below documentation for detailed steps </strong></p>
 
-```
+```dashboard:open-url
 url: https://docs.vmware.com/en/VMware-Tanzu-Mission-Control/services/tanzumc-using/GUID-1BA391EC-A49B-44AE-A8C7-D72F6012EF58.html
 ```
 

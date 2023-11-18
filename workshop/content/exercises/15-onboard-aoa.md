@@ -31,7 +31,7 @@ Click **ADD AN INTEGRATION INSTANCE** on the next page.
 
 ![](./images/TAP-aoa-5.png)
     
-    * Finish
+   * Click **Finish**
       
  ![](./images/TAP-aoa-4.png)
 
@@ -57,12 +57,18 @@ kubectl apply -f $HOME/tap-metrics.yaml
 
 * Go to the AOA Wavefront home page and then click **Dashboards** > **Create Dashboard**.
 
-* Click JSON in the upper right corner.
+* Provide Name: **{{ session_namespace }}-tap**
 
-* Click Tree > Code and extract the downloaded content from tap-health-dashboard.json.
+* Click JSON in the upper right corner
 
-* Copy the content from tap-health-dashboard.json into the code block and then click ACCEPT.
+```editor:open-file
+file: ~/tap-health-dashboard.json
+```
+
+* Click Tree > Code and Copy the content from tap-health-dashboard.json into the code block and then click ACCEPT.
 
 * Click SAVE in the top right corner to save the dashboard.
 
-* In the search text box, type the name of the cluster that you onboarded and select it from the list of available clusters.
+* Select the cluster **{{ session_namespace }}-tap** from dropdown that you onboarded
+
+![](./images/TAP-aoa-6.png)

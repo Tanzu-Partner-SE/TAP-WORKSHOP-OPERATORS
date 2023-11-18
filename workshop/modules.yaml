@@ -46,6 +46,12 @@ modules:
         exit_sign: Tas Adapter
     exercises/14-tasadapter:
         name: Application Service Adapter
+        exit_sign: AOA
+    exercises/15-onboard-aoa:
+        name: Aria Operations for Apps
+        exit_sign: API Portal
+    exercises/16-api-portal:
+        name: API Portal
         exit_sign: Cleanup
     exercises/15-Cleanup:
         name: Cleanup

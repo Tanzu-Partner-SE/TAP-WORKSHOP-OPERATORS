@@ -8,7 +8,7 @@ Edit scanpolicy and Add "Critical" to notAllowedSeverities list:
 
 ```editor:open-file
 file: /home/eduk8s/scanpolicy.yaml
-line: 17
+line: 20
 ```
 
 ref Image: ![Scanpolicy](images/scanpolicy-1.png)

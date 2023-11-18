@@ -6,5 +6,5 @@ The Pinniped Supervisor is an OIDC server which allows users to authenticate wit
 The Pinniped Concierge is a credential exchange API that takes a credential from an identity source, for example, Pinniped Supervisor, proprietary IDP, as input. The Pinniped Concierge authenticates the user by using the credential, and returns another credential that is parsable by the host Kubernetes cluster or by an impersonation proxy that acts on behalf of the user.
 
 ```dashboard:open-url
-url: https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-authn-authz-overview.html
+url: https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.7/tap/GUID-authn-authz-overview.html
 ```

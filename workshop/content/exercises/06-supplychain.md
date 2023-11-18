@@ -16,7 +16,7 @@ TAP also includes Out of the Box Templates and Out of the Box Delivery Basic.
 
 ```editor:open-file
 file: ~/tap-values.yaml
-line: 19
+line: 18
 ```
 
 <p style="color:blue"><strong> List the supply chains </strong></p>

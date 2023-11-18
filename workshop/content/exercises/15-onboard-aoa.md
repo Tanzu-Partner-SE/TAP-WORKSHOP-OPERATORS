@@ -72,3 +72,5 @@ file: ~/tap-health-dashboard.json
 * Select the cluster **{{ session_namespace }}-tap** from dropdown that you onboarded
 
 ![](./images/TAP-aoa-6.png)
+
+**Note:** Wait for few mins to view all the metrics showing in dashboard. 

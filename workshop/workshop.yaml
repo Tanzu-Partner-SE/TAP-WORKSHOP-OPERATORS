@@ -20,5 +20,6 @@ modules:
 #    - exercises/14-tasadapter
     - exercises/15-onboard-aoa
     - exercises/16-api-portal
+    - exercises/17-bitnami-services
     - exercises/15-Cleanup
     - workshop-summary

@@ -11,8 +11,10 @@ tanzu package installed get api-portal -n tap-install
 ```
 
 ```dashboard:open-url
-url:
+url: http://api-portal.{{ session_namespace }}.demo.tanzupartnerdemo.com/apis
 ```
+
+![](./images/TAP-api-01.png)
 
 ```dashboard:open-url
 url: https://docs.vmware.com/en/API-portal-for-VMware-Tanzu/1.4/api-portal/GUID-configuring-k8s-basics.html

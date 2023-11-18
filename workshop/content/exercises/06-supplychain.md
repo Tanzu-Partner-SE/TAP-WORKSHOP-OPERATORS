@@ -16,7 +16,7 @@ TAP also includes Out of the Box Templates and Out of the Box Delivery Basic.
 
 ```editor:open-file
 file: ~/tap-values.yaml
-line: 14
+line: 19
 ```
 
 <p style="color:blue"><strong> List the supply chains </strong></p>
@@ -108,5 +108,5 @@ The **Delivery** step of the supply chain apply the yaml file on a cluster. This
 For more detailed info reg supply chains, please refer to official vmware doc: 
 
 ```dashboard:open-url
-url: https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.5/tap/scc-ootb-supply-chain-testing-scanning.html
+url: https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.7/tap/scc-ootb-supply-chain-testing-scanning.html
 ```

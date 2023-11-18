@@ -7,7 +7,7 @@ The API documentation plug-in is part of Tanzu Application Platform GUI.
 ##### VMWare Docs - API Docs
 
 ```dashboard:open-url
-url: https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.5/tap/tap-gui-plugins-api-docs.html
+url: https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.7/tap/tap-gui-plugins-api-docs.html
 ```
 
 Access below tap-gui url and register an entity

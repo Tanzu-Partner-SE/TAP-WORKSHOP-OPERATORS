@@ -126,7 +126,7 @@ url: http://{{ session_namespace }}.tap-workload.{{ session_namespace }}.demo.ta
 ### Pre-build image: 
 
 ```dashboard:open-url
-url: https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.5/tap/scc-pre-built-image.html
+url: https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.7/tap/scc-pre-built-image.html
 ```
 
 ```execute

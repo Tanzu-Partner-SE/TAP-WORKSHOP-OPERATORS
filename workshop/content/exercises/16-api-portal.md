@@ -10,15 +10,15 @@ You can view detailed API documentation and try out an API to meet your needs. A
 tanzu package installed get api-portal -n tap-install
 ```
 
-```
+```dashboard:open-url
 url:
 ```
 
-```
+```dashboard:open-url
 url: https://docs.vmware.com/en/API-portal-for-VMware-Tanzu/1.4/api-portal/GUID-configuring-k8s-basics.html
 ```
 
-```
+```dashboard:open-url
 url: https://docs.vmware.com/en/API-portal-for-VMware-Tanzu/1.4/api-portal/GUID-api-viewer.html
 ```
 

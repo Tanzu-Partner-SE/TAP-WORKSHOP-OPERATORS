@@ -52,9 +52,12 @@ modules:
         exit_sign: API Portal
     exercises/16-api-portal:
         name: API Portal
-        exit_sign: Cleanup
+        exit_sign: Bitnami Services
     exercises/15-Cleanup:
         name: Cleanup
+        exit_sign: Cleanup
+    exercises/17-bitnami-services:
+        name: Bitami Services
         exit_sign: Cleanup
     workshop-summary:
         name: Workshop Summary

@@ -18,7 +18,7 @@ modules:
     - exercises/12-TechDocs
     - exercises/13-security-analysis
     - exercises/14-tasadapter
-    - exercises/15-Cleanup
     - exercises/15-onboard-aoa
     - exercises/16-api-portal
+    - exercises/15-Cleanup
     - workshop-summary

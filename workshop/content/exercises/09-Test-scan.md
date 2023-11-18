@@ -43,7 +43,7 @@ ref Image: ![Scanpolicy](images/scan-1.png)
 
 ```editor:open-file
 file: /home/eduk8s/scanpolicy.yaml
-line: 18
+line: 21
 ```
 
 Add the CVE **CVE-2022-22965** to ignoreCves list as shown in below image: 

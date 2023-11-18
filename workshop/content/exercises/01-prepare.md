@@ -56,7 +56,7 @@ In TMC Console as shown in below screenshot, Click on **Clusters** > **Add Clust
 * Select the Nodepool Compute as below:
 
   * Availability Zones: **1**
-  * Edit the Node size and select **Standard_DS4_V3**
+  * Edit the Node size and select **Standard_D4s_V3**
   * Scale Method: **Manual** and nodes to **4**
   * Click **Next** and **Create**
    

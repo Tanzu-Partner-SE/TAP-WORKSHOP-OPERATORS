@@ -43,7 +43,7 @@ modules:
         exit_sign: Security Analysis
     exercises/13-security-analysis:
         name: Security Analysis
-        exit_sign: Tas Adapter
+        exit_sign: AOA
     exercises/14-tasadapter:
         name: Application Service Adapter
         exit_sign: AOA
@@ -55,7 +55,7 @@ modules:
         exit_sign: Bitnami Services
     exercises/15-Cleanup:
         name: Cleanup
-        exit_sign: Cleanup
+        exit_sign: Next
     exercises/17-bitnami-services:
         name: Bitami Services
         exit_sign: Cleanup

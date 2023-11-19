@@ -33,17 +33,17 @@ url: https://www.youtube.com/watch?v=H6rbIkaJ1xc
 <p style="color:blue"><strong> Easy path to production using VMware Tanzu Application Platform </strong></p>
 
 ```dashboard:open-url
-url: https://www.youtube.com/watch?v=dbWSPQ9tTEk&t=20s
+url: https://www.youtube.com/watch?v=dbWSPQ9tTEk
 ```
 
 <p style="color:blue"><strong> Improve Developer Experience using Tanzu Application Platform </strong></p>
 
 ```dashboard:open-url
-url: https://www.youtube.com/watch?v=H6rbIkaJ1xc
+url: https://www.youtube.com/watch?v=3p9lNSn8DSc
 ```
 
 <p style="color:blue"><strong> Securing end to end Kubernetes application supply chain using Tanzu </strong></p>
 
 ```dashboard:open-url
-url: https://www.youtube.com/watch?v=H6rbIkaJ1xc
+url: https://www.youtube.com/watch?v=V5voRJJ6qTs
 ```

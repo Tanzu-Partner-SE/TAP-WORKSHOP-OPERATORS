@@ -34,12 +34,6 @@ tanzu apps workload delete partnertapdemo-testscanpolicy -n tap-workload -y
 tanzu apps workload list -n tap-workload
 ```
 
-###### Delete the TAP Package, this process takes around 3-4 mins to complete. 
-
-```execute
-sudo tanzu package installed delete tap -n tap-install -y
-```
-
 ###### Clear the DNS entries created in previous sections: 
 
 -   {{ session_namespace }}.tap-workload.{{ session_namespace }}.demo.tanzupartnerdemo.com
@@ -48,9 +42,3 @@ sudo tanzu package installed delete tap -n tap-install -y
 -   partnertapdemo-testscanpolicy.tap-workload.{{ session_namespace }}.demo.tanzupartnerdemo.com
 
 ![Local host](images/local-hosts.png)
-
-###### Delete the Kubernetes cluster
-
-```execute
-az aks delete --name {{ session_namespace }}-cluster --resource-group tapdemo-cluster-RG -y
-```
